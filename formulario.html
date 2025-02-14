@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8"/><!--Cerre la llave con diagonal-->
@@ -10,31 +10,31 @@
 
 </head>
 <body>
+  <main>
   <h1>Bienvenidos a mi fiesta</h1>
   <h2>Por favor, confirmar asistencia:</h2>
 
-  <form class="formulario">
-    Nombre <input type="text" name="name" id="name">
-    <br />
-    Edad <input type="number" name="age" id="age">
-    <br />
+  <!--Le di un arrgelo a estilo boostrap-->
+  <form class="formulario" action="#" method="post" id="form">
+    <label for ="name">Nombre</label> 
+    <input type="text" id="name"  name="name" required><br>
 
-    Nacionalidad
+    <label for="ege">Edad</label>
+    <input type="number" id="age" name="age" required><br>
+
+    <label for="nationality">Nacionalidad</label>
     <select name="nationality" id="nationality">
       <option value="ar">Argentina</option>
       <option value="mx">Mexicana</option>
       <option value="per">Peruana</option>
       <option value="vnzl">Venezolana</option>
-    </select>
-    <br />
-    <input type="submit">
+    </select><br>
+    <input type="submit" value="enviar"><!--Agregue el valor de envio-->
   </form>
-
   <div>
     <h2>Lista de invitados</h2>
-
   </div>
-
+</main>
   <script src="/codigo-otros-2/formulario.js"></script><!--corregi la ruta-->
 </body>
 
