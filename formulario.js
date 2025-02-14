@@ -53,24 +53,19 @@ function agregarInvitado(nombre, edad, nacionalidad) {
 const lista = document.getElementById("lista-de-invitados");
 
 const elementoLista = document.createElement("div");
-elementoLista.classList.add("elemento-lista");//en esta linea added no es correcto, el correcto es .add
+elementoLista.classList.add("elemento-lista");//en esta linea added no es correcto, el correcto es .add ademas de que el elemento va en parantesis.
 lista.appendChild(elementoLista);
 
-const spanNombre = document.createElement("span");
-const inputNombre = document.createElement("input");
-const espacio = document.createElement("br");
-spanNombre.textContent = "Nombre: ";
-inputNombre.value = nombre;
-elementoLista.appendChild(spanNombre);
-elementoLista.appendChild(inputNombre);
-elementoLista.appendChild(espacio);
+//estaba dupliacado el contenido de la funcion
 
 function crearElemento(descripcion, valor) {
 const spanNombre = document.createElement("span");
 const inputNombre = document.createElement("input");
 const espacio = document.createElement("br");
+
 spanNombre.textContent = descripcion + ": ";
 inputNombre.value = valor;
+
 elementoLista.appendChild(spanNombre);
 elementoLista.appendChild(inputNombre);
 elementoLista.appendChild(espacio);
@@ -83,13 +78,19 @@ crearElemento("Nacionalidad", nacionalidad);
 //Cambie el nombre del botonBorrar ya que ya estaba declarado por lo que le puse botonEliminar, tambien corteLinea por lo que le puse corteLinea2
 const botonEliminar = document.createElement("button");
 botonEliminar.textContent = "Eliminar invitado";
-botonEliminar.id = "boton-borrar";
-const corteLinea2 = document.createElement("br");
-elementoLista.appendChild(corteLinea2);
+botonEliminar.classList.add("boton-borrar");//el correcto es .add ademas de que el elemento va en parantesis no con =
+
+botonEliminar.onclick = function() {
+  lista.removeChild(elementoLista);
+};
+
+elementoLista.appendChild(document.createElement("br"));
 elementoLista.appendChild(botonEliminar);
+
+lista.appendChild(elementoLista);
 
  botonEliminar.onclick = function() {
 // this.parentNode.style.display = 'none';
-botonEliminar.parentNode.remove()
+botonEliminar.parentNode.removeChild(botonEliminar)//es removeChild ya que no es posible remove
   }
 }
